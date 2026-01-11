@@ -5,6 +5,17 @@ Accept: application/json
 
 ###
 
+## Apply a `JsonPatchDocument<T>` to an object
+
+# The following example demonstrates:
+#
+# * The `add`, `replace`, and `remove` operations.
+# * Operations on nested properties.
+# * Adding a new item to an array.
+# * Using a JSON String Enum Converter in a JSON patch document.
+
+# Get the original customer
+
 GET {{HostAddress}}/api/customers/1
 Accept: application/json
 
@@ -15,11 +26,10 @@ Content-Type: application/json-patch+json
 Accept: application/json
 
 [
-  {
-    "op": "replace",
-    "path": "/email",
-    "value": "foo@bar.baz"
-  }
+  { "op": "replace", "path": "/FirstName", "value": "Jane" },
+  { "op": "remove", "path": "/Email"},
+  { "op": "add", "path": "/Address/ZipCode", "value": "90210" },
+  { "op": "add", "path": "/PhoneNumbers/-", "value": { "Number": "987-654-3210", "Type": "Work" } }
 ]
 
 ###

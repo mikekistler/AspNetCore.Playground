@@ -12,7 +12,7 @@ internal static class CustomerApi {
 
         group.MapGet("/{id}", async Task<Results<Ok<Customer>, NotFound>> (AppDb db, string id) =>
         {
-            return await db.Customers.Include(c => c.Orders).FirstOrDefaultAsync(c => c.Id == id) is Customer customer
+            return await db.Customers.FirstOrDefaultAsync(c => c.Id == id) is Customer customer
                 ? TypedResults.Ok(customer)
                 : TypedResults.NotFound();
         });
@@ -20,7 +20,7 @@ internal static class CustomerApi {
         group.MapPatch("/{id}", async Task<Results<Ok<Customer>,NotFound,BadRequest, ValidationProblem>> (AppDb db, string id,
             JsonPatchDocument<Customer> patchDoc) =>
         {
-            var customer = await db.Customers.Include(c => c.Orders).FirstOrDefaultAsync(c => c.Id == id);
+            var customer = await db.Customers.FirstOrDefaultAsync(c => c.Id == id);
             if (customer is null)
             {
                 return TypedResults.NotFound();

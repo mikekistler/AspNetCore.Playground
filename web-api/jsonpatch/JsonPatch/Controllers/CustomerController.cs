@@ -11,22 +11,15 @@ namespace App.Controllers;
 public class CustomerController : ControllerBase
 {
     [HttpGet("{id}", Name = "GetCustomer")]
-    public Customer Get(AppDb db, string id)
+    public IActionResult Get(AppDb db, string id)
     {
         // Retrieve the customer by ID
         var customer = db.Customers.FirstOrDefault(c => c.Id == id);
 
         // Return 404 Not Found if customer doesn't exist
-        if (customer == null)
-        {
-            Response.StatusCode = 404;
-            return null;
-        }
-
-        return customer;
+        return customer is not null ? Ok(customer) : NotFound();
     }
 
-    // <snippet_PatchAction>
     [HttpPatch("{id}", Name = "UpdateCustomer")]
     public IActionResult Update(AppDb db, string id, [FromBody] JsonPatchDocument<Customer> patchDoc)
     {
@@ -53,5 +46,4 @@ public class CustomerController : ControllerBase
 
         return new ObjectResult(customer);
     }
-    // </snippet_PatchAction>
 }

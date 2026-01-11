@@ -1,5 +1,4 @@
 using App.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace App.Data;
 
@@ -23,26 +22,44 @@ public static class AppDbSeeder
                 new Customer
                 {
                     Id = "1",
-                    Name = "John Doe",
-                    Email = "john.doe@example.com",
-                    PhoneNumber = "555-123-4567",
-                    Address = "123 Main St, Anytown, USA"
+                    FirstName = "John",
+                    LastName = "Doe",
+                    Email = "johndoe@gmail.com",
+                    PhoneNumbers = [new() {Number = "123-456-7890", Type = PhoneNumberType.Mobile}],
+                    Address = new Address
+                    {
+                        Street = "123 Main St",
+                        City = "Anytown",
+                        State = "TX"
+                    }
                 },
-                new Customer
+                new()
                 {
                     Id = "2",
-                    Name = "Jane Smith",
+                    FirstName = "Jane",
+                    LastName = "Smith",
                     Email = "jane.smith@example.com",
-                    PhoneNumber = "555-987-6543",
-                    Address = "456 Oak Ave, Somewhere, USA"
+                    PhoneNumbers = [new() {Number = "555-987-6543", Type = PhoneNumberType.Mobile}],
+                    Address = new Address
+                    {
+                        Street = "456 Oak Ave",
+                        City = "Somewhere",
+                        State = "USA"
+                    }
                 },
-                new Customer
+                new()
                 {
                     Id = "3",
-                    Name = "Bob Johnson",
+                    FirstName = "Bob",
+                    LastName = "Johnson",
                     Email = "bob.johnson@example.com",
-                    PhoneNumber = "555-555-5555",
-                    Address = "789 Pine Rd, Elsewhere, USA"
+                    PhoneNumbers = [new() {Number = "555-555-5555", Type = PhoneNumberType.Mobile}],
+                    Address = new Address
+                    {
+                        Street = "789 Pine Rd",
+                        City = "Elsewhere",
+                        State = "USA"
+                    }
                 }
             };
 
