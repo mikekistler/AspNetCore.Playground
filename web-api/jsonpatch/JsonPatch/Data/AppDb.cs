@@ -18,5 +18,19 @@ public class AppDb : DbContext
         // Configure entity relationships here if needed
         modelBuilder.Entity<Customer>()
             .HasKey(c => c.Id);
+
+        // Configure Address as an owned type (stored as JSON in SQLite)
+        modelBuilder.Entity<Customer>()
+            .OwnsOne(c => c.Address, address =>
+            {
+                address.ToJson();
+            });
+
+        // Configure PhoneNumbers as an owned collection (stored as JSON in SQLite)
+        modelBuilder.Entity<Customer>()
+            .OwnsMany(c => c.PhoneNumbers, phoneNumber =>
+            {
+                phoneNumber.ToJson();
+            });
     }
 }
