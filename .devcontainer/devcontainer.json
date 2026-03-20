@@ -22,6 +22,7 @@
 	// PROMPT_DIRTRIM will show only the last 1 directory in the path.
 	"postCreateCommand": {
 		"prompt": "echo 'export PROMPT_DIRTRIM=1' >> ~/.bashrc",
+		"environment": "echo 'export ASPNETCORE_ENVIRONMENT=Development' >> ~/.bashrc",
 		"dev-certs": "dotnet dev-certs https --trust"
 	},
 

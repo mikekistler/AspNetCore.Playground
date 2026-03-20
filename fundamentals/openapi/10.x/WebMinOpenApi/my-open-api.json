@@ -1,25 +1,22 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.1.1",
   "info": {
-    "title": "GetDocument.Insider | v1",
-    "description": "Transformed OpenAPI document",
+    "title": "WebMinOpenApi | v1",
     "version": "1.0.0"
   },
   "paths": {
     "/": {
       "get": {
         "tags": [
-          "GetDocument.Insider"
+          "WebMinOpenApi"
         ],
-        "summary": "Transformed OpenAPI operation",
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "description": "Transformed OpenAPI schema"
+                  "type": "string"
                 }
               }
             }
@@ -28,10 +25,9 @@
       }
     }
   },
-  "components": { },
   "tags": [
     {
-      "name": "GetDocument.Insider"
+      "name": "WebMinOpenApi"
     }
   ]
 }
