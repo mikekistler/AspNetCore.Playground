@@ -11,6 +11,7 @@
 //#define MULTIDOC_OPERATIONtransformer1
 //#define OPERATIONtransformer1
 //#define OPERATIONtransformer2
+//#define SCHEMAtransformer1
 
 #if DEFAULT
 // <snippet_default>
