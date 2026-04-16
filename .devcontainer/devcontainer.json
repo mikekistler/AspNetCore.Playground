@@ -23,7 +23,8 @@
 	"postCreateCommand": {
 		"prompt": "echo 'export PROMPT_DIRTRIM=1' >> ~/.bashrc",
 		"environment": "echo 'export ASPNETCORE_ENVIRONMENT=Development' >> ~/.bashrc",
-		"dev-certs": "dotnet dev-certs https --trust"
+		"dev-certs": "dotnet dev-certs https --trust",
+		"gh-copilot": "npm install -g @github/copilot"
 	},
 
 	// Configure tool-specific properties.
